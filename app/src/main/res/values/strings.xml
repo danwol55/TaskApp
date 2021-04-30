@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">TaskApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
+    <string name="channel_name">notification_channel</string>
+    <string name="channel_description">channel for task notification</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="dialog_message">Do You Want To Delete All Tasks?</string>
+    <string name="confirm_text_button">Confirm</string>
+    <string name="cancel_text_button">Cancel</string>
+
+    <string name="task_content_description">task</string>
+    <string name="reminder_text">reminder</string>
+    <string name="confirm_text">confirm</string>
+    <string name="important_text">important</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="delete_text">delete</string>
+    <string name="title_all_task">all tasks</string>
+    <string name="title_important_tasks">important tasks</string>
+    <string name="title_completed_tasks">completed tasks</string>
+    <string name="title_deleted_tasks">deleted tasks</string>
+    <string name="title_labels">Labels</string>
+    <string name="title_most_important">most important</string>
+    <string name="title_medium_important">medium important</string>
+    <string name="title_low_important">low important</string>
+    <string name="text_user_name">User Name</string>
+    <string name="text_user_email">dan45daniello@gmail.com</string>
+    <string name="text_task_to_do">task to do</string>
+    <string name="title_sort">Sort</string>
+    <string name="title_sort_by_name">Sort by name</string>
+    <string name="title_sort_by_date">Sort by date</string>
+    <string name="title_search">Search</string>
+    <string name="title_hide_completed_tasks">Hide completed tasks</string>
+    <string name="title_delete_all_tasks">Delete all tasks</string>
+    <string name="hint">type task name</string>
+
+</resources>

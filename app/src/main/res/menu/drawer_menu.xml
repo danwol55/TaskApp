@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/all_tasks"
+            android:title="@string/title_all_task"
+            android:icon="@drawable/ic_baseline_note"/>
+        <item
+            android:id="@+id/important_tasks"
+            android:icon="@drawable/ic_baseline_important"
+            android:title="@string/title_important_tasks" />
+        <item
+            android:id="@+id/completed_tasks"
+            android:icon="@drawable/ic_baseline_complete"
+            android:title="@string/title_completed_tasks" />
+        <item
+            android:id="@+id/deleted_tasks"
+            android:icon="@drawable/ic_baseline_delete"
+            android:title="@string/title_deleted_tasks" />
+    </group>
+
+    <item android:title="@string/title_labels">
+        <menu>
+            <item
+                android:id="@+id/top_important"
+                android:title="@string/title_most_important"/>
+            <item
+                android:id="@+id/medium_important"
+                android:title="@string/title_medium_important"/>
+            <item
+                android:id="@+id/low_important"
+                android:title="@string/title_low_important"/>
+        </menu>
+
+    </item>
+
+</menu>
