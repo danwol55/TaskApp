@@ -174,7 +174,7 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
                 firstTransition = false
 
                 val calendar1 = Calendar.getInstance()
-                val hour1 = calendar1.get(Calendar.HOUR)
+                val hour1 = calendar1.get(Calendar.HOUR_OF_DAY)
                 val minute1 = calendar1.get(Calendar.MINUTE)
                 val day1 = calendar1.get(Calendar.DAY_OF_MONTH)
                 val month1 = calendar1.get(Calendar.MONTH)
@@ -196,7 +196,8 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
                         minutePicker.value = minute1
                         dayPicker.value = day1
                         monthPicker.value = month1
-                        updateLabel(calendar1)
+                        val label = createLabel(hour1, minute1, day1, month1+1)
+                        updateLabel(label)
                     }
                 }
                 else
@@ -205,7 +206,8 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
                     minutePicker.value = minute1
                     dayPicker.value = day1
                     monthPicker.value = month1
-                    updateLabel(calendar1)
+                    val label = createLabel(hour1, minute1, day1, month1+1)
+                    updateLabel(label)
                 }
             }
 
@@ -277,8 +279,12 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
             }
 
             hourPicker.setOnValueChangedListener { p0, p1, p2 ->
-                calendar.set(Calendar.HOUR, hourPicker.value)
-                updateLabel(calendar)
+                val hour1 = hourPicker.value
+                val minute1 = minutePicker.value
+                val day1 = dayPicker.value
+                val month1 = monthPicker.value
+                val label = createLabel(hour1, minute1, day1, month1+1)
+                updateLabel(label)
             }
 
             minutePicker.apply {
@@ -290,8 +296,12 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
             }
 
             minutePicker.setOnValueChangedListener { p0, p1, p2 ->
-                calendar.set(Calendar.MINUTE, minutePicker.value)
-                updateLabel(calendar)
+                val hour1 = hourPicker.value
+                val minute1 = minutePicker.value
+                val day1 = dayPicker.value
+                val month1 = monthPicker.value
+                val label = createLabel(hour1, minute1, day1, month1+1)
+                updateLabel(label)
             }
 
             dayPicker.apply {
@@ -303,8 +313,12 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
             }
 
             dayPicker.setOnValueChangedListener { p0, p1, p2 ->
-                calendar.set(Calendar.DAY_OF_MONTH, dayPicker.value)
-                updateLabel(calendar)
+                val hour1 = hourPicker.value
+                val minute1 = minutePicker.value
+                val day1 = dayPicker.value
+                val month1 = monthPicker.value
+                val label = createLabel(hour1, minute1, day1, month1+1)
+                updateLabel(label)
             }
 
             monthPicker.apply {
@@ -316,8 +330,12 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
             }
 
             monthPicker.setOnValueChangedListener { p0, p1, p2 ->
-                calendar.set(Calendar.MONTH, monthPicker.value)
-                updateLabel(calendar)
+                val hour1 = hourPicker.value
+                val minute1 = minutePicker.value
+                val day1 = dayPicker.value
+                val month1 = monthPicker.value
+                val label = createLabel(hour1, minute1, day1, month1+1)
+                updateLabel(label)
             }
 
             //Pickers Implementation//////////////////////////////////////////////////
@@ -432,11 +450,25 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener,
 
     }
 
-    private fun updateLabel(c: Calendar)
+    private fun createLabel(hour: Int, minute: Int, day: Int, month: Int):String
     {
-        val format = "hh:mm dd/MM/yy"
-        val simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
-        time_view.text = simpleDateFormat.format(c.time)
+        val label = StringBuilder("")
+        if(hour<10) label.append("0$hour:")
+        else label.append("$hour:")
+        if(minute<10) label.append("0$minute ")
+        else label.append("$minute ")
+        if(day<10) label.append("0$day/")
+        else label.append("$day/")
+        if(month<10) label.append("0$month")
+        else label.append(month)
+        return label.toString()
+    }
+
+    private fun updateLabel(label: String)
+    {
+        //val format = "HH:mm dd/MM/yy"
+        //val simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
+        time_view.text = label
     }
 
     private fun setReminder(c: Calendar, p: PendingIntent?)

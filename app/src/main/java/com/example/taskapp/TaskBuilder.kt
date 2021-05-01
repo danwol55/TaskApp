@@ -16,6 +16,7 @@ internal class TaskBuilder(var context: Context) : ContextWrapper(context)
     fun createTaskWithReminder(text: String?, reminder: Reminder?, isImportant: Boolean, requestCode: Int) : Task
     {
         intent = Intent(context, Receiver::class.java)
+        intent!!.putExtra("message", text)
         pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0)
         return Task(text!!, reminder!!, isImportant, pendingIntentIndex = requestCode)
     }
